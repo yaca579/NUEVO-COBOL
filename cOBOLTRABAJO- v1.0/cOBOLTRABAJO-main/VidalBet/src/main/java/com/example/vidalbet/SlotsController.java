@@ -1,6 +1,8 @@
 package com.example.vidalbet;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.*;
+import java.util.Random;
 
 public class SlotsController {
 
@@ -38,19 +42,19 @@ public class SlotsController {
         actualizarSaldo();
         animarPalanca();
 
-        // Llamamos al motor COBOL en un hilo separado para no congelar la pantalla
+        // Llamamos al motor COBOL en un hilo separado
         new Thread(() -> {
             try {
-                ProcessBuilder pb = new ProcessBuilder("./slots"); // Si estás en Windows usa "slots.exe"
+                ProcessBuilder pb = new ProcessBuilder("slots.exe");
                 Process p = pb.start();
 
                 // 1. ENVIAMOS LA APUESTA A COBOL
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
-                writer.write(String.format("%04d\n", apuesta)); // Envía "0005" si apuestas 5
+                writer.write(String.format("%04d\n", apuesta));
                 writer.flush();
                 writer.close();
 
-                // 2. LEEMOS LA RESPUESTA DE COBOL (Ej: "7,7,7,00050")
+                // 2. LEEMOS LA RESPUESTA DE COBOL
                 BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                 String resultadoCobol = reader.readLine();
 
@@ -59,40 +63,66 @@ public class SlotsController {
                 }
 
             } catch (Exception e) {
-                Platform.runLater(() -> mostrarAlerta("Error Sistema", "No se pudo conectar con el Mainframe COBOL. Compílalo primero!"));
+                Platform.runLater(() -> mostrarAlerta("Error Sistema", "No se pudo conectar con el Mainframe COBOL."));
                 e.printStackTrace();
             }
         }).start();
     }
 
     private void procesarRespuestaCobol(String resultadoCobol) {
-        // resultadoCobol es algo como: "C,C,C,00015"
         String[] partes = resultadoCobol.split(",");
 
         if (partes.length == 4) {
-            // Traducimos las letras de COBOL a Emojis Visuales
-            slot1.setText(traducirSimbolo(partes[0]));
-            slot2.setText(traducirSimbolo(partes[1]));
-            slot3.setText(traducirSimbolo(partes[2]));
+            String val1 = partes[0].trim();
+            String val2 = partes[1].trim();
+            String val3 = partes[2].trim();
+            int premio = Integer.parseInt(partes[3].trim());
 
-            // COBOL ya ha calculado cuánto ganamos
-            int premio = Integer.parseInt(partes[3]);
+            // Lanzamos la animación visual de la ruleta antes de mostrar el resultado
+            animarRuletaYMostrarResultado(val1, val2, val3, premio);
+        }
+    }
+
+    private void animarRuletaYMostrarResultado(String val1, String val2, String val3, int premio) {
+        // Usamos Emojis puros para evitar que JavaFX los desalinee
+        String[] emojisAleatorios = {"💎", "🍒", "🍋", "🔔", "🍉", "🍇"};
+        Random rand = new Random();
+
+        // Creamos la animación rápida
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e -> {
+            slot1.setText(emojisAleatorios[rand.nextInt(emojisAleatorios.length)]);
+            slot2.setText(emojisAleatorios[rand.nextInt(emojisAleatorios.length)]);
+            slot3.setText(emojisAleatorios[rand.nextInt(emojisAleatorios.length)]);
+        }));
+
+        // Gira 15 veces (1.5 segundos de tensión)
+        timeline.setCycleCount(15);
+
+        // Cuando acaba la animación, plantamos el resultado real
+        timeline.setOnFinished(e -> {
+            slot1.setText(traducirSimbolo(val1));
+            slot2.setText(traducirSimbolo(val2));
+            slot3.setText(traducirSimbolo(val3));
 
             if (premio > 0) {
-                SessioUsuari.saldo += premio; // Sumamos el premio al saldo
-                if (partes[0].equals("7") && partes[1].equals("7")) {
-                    mostrarAlerta("🔥 JACKPOT! 🔥", "El Mainframe te ha otorgado: " + premio + "€!");
+                SessioUsuari.saldo += premio; // Sumamos el premio
+                if (val1.equals("7") && val2.equals("7") && val3.equals("7")) {
+                    mostrarAlerta("🔥 JACKPOT! 🔥", "¡Pleno de Diamantes! El Mainframe te otorga: " + premio + "€");
                 } else {
                     mostrarAlerta("🍒 PREMIO!", "Has ganado " + premio + "€!");
                 }
+            } else {
+                mostrarAlerta("😢 Lástima", "No has ganado nada esta vez.");
             }
             actualizarSaldo();
-        }
+        });
+
+        timeline.play();
     }
 
     private String traducirSimbolo(String letra) {
         switch (letra) {
-            case "7": return "7️⃣";
+            case "7": return "💎"; // Cambiado de 7️⃣ a 💎 para alineamiento perfecto
             case "C": return "🍒";
             case "L": return "🍋";
             default: return "❓";
@@ -121,7 +151,8 @@ public class SlotsController {
 
     private void mostrarAlerta(String t, String m) {
         Alert a = new Alert(Alert.AlertType.INFORMATION, m);
-        a.setTitle(t); a.setHeaderText(null);
+        a.setTitle(t);
+        a.setHeaderText(null);
         try {
             a.getDialogPane().getStylesheets().add(getClass().getResource("style.css").toExternalForm());
             a.getDialogPane().getStyleClass().add("dialog-pane");

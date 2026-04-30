@@ -262,7 +262,8 @@
     -fx-min-width: 120;
     -fx-min-height: 180;
     -fx-background-radius: 10;
-    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.7), 10, 0, 0, 0);
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.7), 10, 0,
+    0, 0);
 }
 
 .slot-text {
@@ -282,4 +283,148 @@
 .lever-button:hover {
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
+}
+/* --- ESTILOS PARA LA TRAGAPERRAS --- */
+.machine-container {
+    -fx-background-color: #0A0C10;
+    -fx-padding: 40;
+    -fx-background-radius: 20;
+    -fx-border-color: linear-gradient(to bottom right, #00D4FF, #E5C04A);
+    -fx-border-width: 3;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 212, 255, 0.25), 40, 0.2, 0, 0);
+}
+
+/* Caja oscura donde están los rodillos */
+.reels-container {
+    -fx-background-color: #05070A;
+    -fx-padding: 25;
+    -fx-background-radius: 15;
+    -fx-border-color: #2D323E;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.9), 20, 0.5, 0, 0);
+}
+
+/* Cada casilla individual de las frutas */
+.slot-drum {
+    -fx-background-color: #12151B;
+    -fx-background-radius: 10;
+    -fx-min-width: 140px;
+    -fx-min-height: 160px;
+    -fx-max-height: 160px;
+    -fx-alignment: center;
+    -fx-border-color: #3A4150;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(two-pass-box, rgba(229, 192, 74, 0.1), 15, 0.1, 0, 0);
+}
+
+/* Frutas Gigantes */
+.slot-text {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", sans-serif;
+    -fx-font-size: 90px;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-line-spacing: 0;
+    -fx-padding: 0;
+}
+
+/* Campo de texto de la apuesta en neón */
+.neon-textfield {
+    -fx-background-color: #05070A;
+    -fx-text-fill: #E5C04A;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-border-color: #00D4FF;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+/* Botón luminoso TIRAR */
+.btn-spin-neon {
+    -fx-background-color: linear-gradient(to bottom, #E5C04A, #B89A3B);
+    -fx-text-fill: #05070A;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-padding: 15 50;
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+    /* Resplandor dorado fuerte */
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 192, 74, 0.6), 25, 0.3, 0, 0);
+}
+
+.btn-spin-neon:hover {
+    -fx-background-color: linear-gradient(to bottom, #FCE38A, #E5C04A);
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 192, 74, 0.9), 35, 0.5, 0, 0);
+}
+
+.btn-spin-neon:pressed {
+    -fx-background-color: #9A8030;
+    -fx-effect: none;
+    -fx-translate-y: 3px;
+}
+
+/* =========================================
+   TABLA DE PREMIOS (DERECHA)
+   ========================================= */
+
+.paytable-container {
+    -fx-background-color: #0E1116;
+    -fx-padding: 30;
+    -fx-background-radius: 20;
+    -fx-border-color: #2D323E;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-min-width: 380px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 20, 0.5, 0, 0);
+}
+
+.paytable-title {
+    -fx-text-fill: #00D4FF;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-pref-width: 320px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 212, 255, 0.5), 15, 0.2, 0, 0);
+}
+
+.paytable-row {
+    -fx-background-color: #12151B;
+    -fx-padding: 15 25;
+    -fx-background-radius: 12;
+    -fx-border-color: #1C2028;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+/* Fila especial que brilla para el premio del Jackpot */
+.paytable-row-jackpot {
+    -fx-background-color: #1A1A10; /* Tonillo amarillo oscuro */
+    -fx-padding: 15 25;
+    -fx-background-radius: 12;
+    -fx-border-color: #E5C04A;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 192, 74, 0.2), 15, 0, 0, 0);
+}
+
+.paytable-symbols {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", sans-serif;
+    -fx-font-size: 28px;
+}
+
+.paytable-prize {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.paytable-prize-gold {
+    -fx-text-fill: #E5C04A;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 192, 74, 0.6), 12, 0.4, 0, 0);
 }
