@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #12151B;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vidalbet.CasinoController">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="70.0" spacing="20.0" style="-fx-background-color: #0E1116; -fx-padding: 0 30; -fx-border-color: #2D323E; -fx-border-width: 0 0 1 0;">
+        <Button onAction="#navInici" styleClass="sidebar-button" text="← TORNAR" style="-fx-text-fill: #E5C04A; -fx-font-weight: bold;" />
+        <Label style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="SALA DE JOCS" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="lblSaldoCasino" style="-fx-text-fill: #E5C04A; -fx-font-size: 18px; -fx-font-weight: bold;" text="Saldo: 0,00 €" />
+    </HBox>
+
+    <HBox VBox.vgrow="ALWAYS" spacing="30.0" style="-fx-padding: 40;">
+
+        <VBox alignment="CENTER" spacing="20.0" styleClass="game-selector-card" onMouseClicked="#obrirSlots" HBox.hgrow="ALWAYS">
+            <Label style="-fx-text-fill: white; -fx-font-size: 60px;" text="🎰" />
+            <Label style="-fx-text-fill: white; -fx-font-size: 36px; -fx-font-weight: bold;" text="SLOTS" />
+            <Label alignment="CENTER" textAlignment="CENTER" style="-fx-text-fill: #7A808C; -fx-font-size: 16px;" text="Multiplica els teus guanys!&#10;Prova sort amb el Jackpot." />
+            <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 20 0 0 0;" text="Clica per entrar →" />
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="20.0" styleClass="game-selector-card" onMouseClicked="#obrirRuleta" HBox.hgrow="ALWAYS">
+            <Label style="-fx-text-fill: white; -fx-font-size: 60px;" text="🎡" />
+            <Label style="-fx-text-fill: white; -fx-font-size: 36px; -fx-font-weight: bold;" text="RULETA" />
+            <Label alignment="CENTER" textAlignment="CENTER" style="-fx-text-fill: #7A808C; -fx-font-size: 16px;" text="Aposta al vermell o negre.&#10;50% de probabilitats de doblar." />
+            <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 20 0 0 0;" text="Clica per entrar →" />
+        </VBox>
+
+    </HBox>
+</VBox>

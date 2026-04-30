@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="30" style="-fx-background-color: #12151B; -fx-padding: 40;"
+      stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.vidalbet.DepositController">
+
+    <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 28px; -fx-font-weight: bold;" text="REALITZAR DIPÒSIT" />
+
+    <VBox maxWidth="400.0" spacing="20" styleClass="dialog-pane" style="-fx-padding: 30;">
+
+        <VBox spacing="5">
+            <Label style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" text="Mètode de pagament actiu" />
+            <Label fx:id="lblTargetaInfo" style="-fx-text-fill: #7A808C; -fx-font-size: 16px;" text="VISA **** 1234" />
+        </VBox>
+
+        <Separator opacity="0.1" />
+
+        <VBox spacing="10">
+            <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Quantitat a dipositar (€)" />
+            <TextField fx:id="txtImport" promptText="0.00" styleClass="bet-input" />
+        </VBox>
+
+        <VBox spacing="10" style="-fx-padding: 10 0 0 0;">
+            <Button maxWidth="Infinity" onAction="#handleConfirmarDiposit" styleClass="bet-confirm-button" text="CONFIRMAR" />
+
+            <Button maxWidth="Infinity" onAction="#handleTornar" styleClass="sidebar-button" style="-fx-alignment: CENTER;" text="Cancel·lar" />
+        </VBox>
+
+    </VBox>
+
+    <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px;" text="Transacció segura encriptada per VidalBet © 2026" />
+
+</VBox>

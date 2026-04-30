@@ -1,0 +1,285 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-base: #12151B; /* Define la base oscura para componentes del sistema */
+}
+
+/* --- MENÚ LATERAL --- */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7A808C;
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+    -fx-background-radius: 10;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #1C2028;
+    -fx-text-fill: white;
+}
+
+/* --- TARJETAS DE APUESTA (HISTORIAL Y LISTAS) --- */
+.list-cell {
+    -fx-background-color: #1C2028;
+    -fx-text-fill: white;
+    -fx-padding: 20;
+    -fx-background-radius: 15;
+    -fx-margin: 10;
+    -fx-border-color: #2D323E;
+    -fx-border-width: 1;
+    -fx-border-radius: 15;
+}
+
+.list-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.list-view {
+    -fx-background-color: transparent;
+}
+
+/* --- BOTONES DE CUOTAS (HOME) --- */
+.cuota-button {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-transition: 0.2s;
+}
+
+.cuota-button:hover {
+    -fx-background-color: #F5F5F5;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* --- DIÁLOGOS Y TICKETS (ESTILO WINAMAX) --- */
+.dialog-pane {
+    -fx-background-color: #1C2028;
+    -fx-border-color: #2D323E;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #1C2028;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: white;
+}
+
+/* El campo donde el usuario escribe el dinero */
+.bet-input {
+    -fx-background-color: #12151B;
+    -fx-text-fill: #E5C04A;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-background-radius: 10;
+    -fx-border-color: #2D323E;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+}
+
+.bet-input:focused {
+    -fx-border-color: #E5C04A;
+}
+
+/* Botón de Confirmar Apuesta dentro del diálogo */
+.bet-confirm-button {
+    -fx-background-color: #E5C04A;
+    -fx-text-fill: #12151B;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+}
+
+.bet-confirm-button:hover {
+    -fx-background-color: #f7d56d;
+}
+
+/* --- SCROLLBAR ESTILO DARK --- */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: #0E1116;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #2D323E;
+    -fx-background-radius: 10;
+}
+
+/* --- ELEMENTOS DE FORMULARIO (RadioButtons) --- */
+.radio-button {
+    -fx-text-fill: #7A808C;
+}
+.radio-button:selected .text {
+    -fx-fill: white;
+}
+.radio-button .radio {
+    -fx-background-color: #12151B;
+    -fx-border-color: #2D323E;
+    -fx-border-radius: 50;
+}
+.radio-button:selected .dot {
+    -fx-background-color: #E5C04A;
+}
+/* --- DISEÑO DEL MENÚ DESPLEGABLE DE PERFIL --- */
+.context-menu {
+    -fx-background-color: #161920;
+    -fx-border-color: #2D323E;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 5 0 5 0;
+}
+
+.menu-item {
+    -fx-padding: 10 30 10 20;
+    -fx-cursor: hand;
+}
+
+.menu-item .label {
+    -fx-text-fill: #E0E0E0;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+.menu-item:focused {
+    -fx-background-color: #2D323E; /* El hover en gris oscuro */
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+}
+
+.separator {
+    -fx-padding: 5 0 5 0;
+}
+.separator .line {
+    -fx-border-color: #2D323E;
+    -fx-border-width: 1 0 0 0;
+}
+/* Estilitzar el contenidor principal del DatePicker */
+.date-picker {
+    -fx-background-color: #1C2028;
+    -fx-background-radius: 10;
+    -fx-border-color: #E5C04A;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+}
+
+/* Estilitzar el camp de text on apareix la data */
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Estilitzar el botó de la icona del calendari */
+.date-picker .button {
+    -fx-background-color: #E5C04A;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.date-picker .button .set-arrow {
+    -fx-background-color: #12151B; /* Color de la icona */
+}
+
+/* --- ESTIL DEL CALENDARI DESPLEGABLE (Popup) --- */
+.date-picker-popup {
+    -fx-background-color: #1C2028;
+    -fx-border-color: #2D323E;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #12151B; /* Capçalera del calendari */
+}
+
+.date-picker-popup .label {
+    -fx-text-fill: #E5C04A; /* Mes i any en daurat */
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .day-name, .date-picker-popup .week-number {
+    -fx-text-fill: #7A808C; /* Noms dels dies */
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: #1C2028;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #E5C04A; /* Hover en daurat */
+    -fx-text-fill: #12151B;
+}
+
+.date-picker-popup .today {
+    -fx-border-color: #E5C04A; /* El dia d'avui marcat */
+    -fx-border-width: 1;
+}
+
+.date-picker-popup .selected {
+    -fx-background-color: #E5C04A; /* Dia seleccionat */
+    -fx-text-fill: #12151B;
+}
+.game-selector-card {
+    -fx-background-color: #1C2028;
+    -fx-border-color: #2D323E;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    /* Transició suau emulada per JavaFX */
+}
+
+/* Efecte HOVER (Quan el ratolí passa per sobre) */
+.game-selector-card:hover {
+    -fx-background-color: #252a35; /* Un fons una mica més clar */
+    -fx-border-color: #E5C04A; /* Vora daurada */
+    /* Crea un efecte d'aura/resplendor daurada al voltant */
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 192, 74, 0.6), 30, 0.2, 0, 0);
+}
+
+/* Efecte PRESSED (Quan fas clic) */
+.game-selector-card:pressed {
+    -fx-background-color: #1a1e26;
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 192, 74, 0.8), 10, 0.5, 0, 0);
+}
+.slot-drum {
+    -fx-background-color: white;
+    -fx-min-width: 120;
+    -fx-min-height: 180;
+    -fx-background-radius: 10;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.7), 10, 0, 0, 0);
+}
+
+.slot-text {
+    -fx-font-size: 80px;
+}
+
+.lever-button {
+    -fx-background-color: linear-gradient(to bottom, #ff4e50, #f9d423);
+    -fx-text-fill: white;
+    -fx-background-radius: 50;
+    -fx-min-width: 100;
+    -fx-min-height: 100;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 192, 74, 0.4), 15, 0, 0, 0);
+}
+
+.lever-button:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}

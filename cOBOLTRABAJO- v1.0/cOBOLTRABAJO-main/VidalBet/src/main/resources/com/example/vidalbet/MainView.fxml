@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<HBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #12151B;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vidalbet.MainController">
+
+    <VBox prefWidth="240.0" spacing="15.0" style="-fx-background-color: #0E1116; -fx-padding: 40 0 0 30;">
+        <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 0 0 30 0;" text="VIDALBET" />
+        <Button maxWidth="Infinity" onAction="#navInici" styleClass="sidebar-button" text="Inici" style="-fx-text-fill: white;" />
+        <Button maxWidth="Infinity" styleClass="sidebar-button" text="Esports" />
+        <Button maxWidth="Infinity" onAction="#navCasino" styleClass="sidebar-button" text="Casino" />
+        <Separator opacity="0.1" style="-fx-padding: 20 30 20 0;" />
+        <Button maxWidth="Infinity" onAction="#navHistorial" styleClass="sidebar-button" text="Historial" />
+        <Button maxWidth="Infinity" onAction="#navPerfil" styleClass="sidebar-button" text="Perfil" />
+    </VBox>
+
+    <VBox HBox.hgrow="ALWAYS">
+        <HBox alignment="CENTER_RIGHT" prefHeight="70.0" spacing="15.0" style="-fx-background-color: #0E1116; -fx-padding: 0 30 0 30; -fx-border-color: #2D323E; -fx-border-width: 0 0 1 0;">
+            <Button onAction="#handleBtnMes" style="-fx-background-color: #E5C04A; -fx-background-radius: 50; -fx-min-width: 25; -fx-min-height: 25; -fx-max-width: 25; -fx-max-height: 25; -fx-text-fill: #12151B; -fx-font-weight: bold; -fx-font-size: 16px; -fx-cursor: hand; -fx-padding: 0;" text="+" />
+            <VBox alignment="CENTER_RIGHT" spacing="2">
+                <HBox alignment="CENTER_RIGHT" spacing="8">
+                    <Label fx:id="lblSaldo" style="-fx-text-fill: #E5C04A; -fx-font-size: 15px; -fx-font-weight: bold;" text="0,00 €" />
+                    <Label style="-fx-text-fill: #7A808C; -fx-font-size: 9px;" text="REAL" />
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" spacing="8">
+                    <Label fx:id="lblSaldoBono" style="-fx-text-fill: #5B9BD5; -fx-font-size: 12px; -fx-font-weight: bold;" text="0,00 €" />
+                    <Label style="-fx-text-fill: #7A808C; -fx-font-size: 9px;" text="BONO" />
+                </HBox>
+            </VBox>
+            <Line endY="30.0" stroke="#2D323E" />
+
+            <HBox alignment="CENTER" spacing="5.0" style="-fx-cursor: hand;" onMouseClicked="#handleAbrirMenuPerfil">
+                <Label fx:id="lblNomUsuari" style="-fx-text-fill: white; -fx-font-size: 14px;" text="Usuari" />
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 10px;" text="▼" />
+            </HBox>
+
+        </HBox>
+
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane" VBox.vgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" spacing="30.0" style="-fx-padding: 30 40 30 40;">
+
+                <StackPane maxWidth="1000.0" prefHeight="250.0" style="-fx-background-color: #1C2028; -fx-background-radius: 15; -fx-overflow: hidden;">
+                    <ImageView fx:id="imgBanner" fitHeight="250.0" fitWidth="1000.0" onMouseClicked="#handleAnarADeposit" pickOnBounds="true" preserveRatio="false" style="-fx-cursor: hand;">
+                        <image>
+                            <Image url="@banner_promo_original.png" />
+                        </image>
+                    </ImageView>
+                </StackPane>
+
+                <VBox fx:id="contenedorDinamicoPartidos" maxWidth="1000.0" spacing="15.0">
+                    <Label style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="Esdeveniment en Directe" />
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </VBox>
+</HBox>

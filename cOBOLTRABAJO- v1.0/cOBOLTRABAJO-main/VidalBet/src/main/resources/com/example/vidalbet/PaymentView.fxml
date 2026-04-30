@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="600.0" spacing="25"
+      style="-fx-background-color: #12151B; -fx-padding: 40;"
+      stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.vidalbet.PaymentController">
+
+    <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 24px; -fx-font-weight: bold;" text="MÈTODE DE PAGAMENT" />
+
+    <VBox spacing="20.0" maxWidth="450.0" styleClass="dialog-pane" style="-fx-padding: 30;">
+
+        <VBox spacing="8.0">
+            <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="NÚMERO DE TARGETA" />
+            <TextField fx:id="txtTargeta" promptText="0000 0000 0000 0000" styleClass="bet-input" style="-fx-font-size: 15px; -fx-alignment: CENTER_LEFT;" />
+        </VBox>
+
+        <VBox spacing="8.0">
+            <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="TITULAR DE LA TARGETA" />
+            <TextField fx:id="txtTitular" promptText="Nom com apareix a la targeta" styleClass="bet-input" style="-fx-font-size: 14px; -fx-alignment: CENTER_LEFT;" />
+        </VBox>
+
+        <HBox spacing="15.0">
+            <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="VENCIMENT" />
+                <TextField fx:id="txtVenciment" promptText="MM/AA" styleClass="bet-input" style="-fx-font-size: 14px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+            <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="CVV" />
+                <TextField fx:id="txtCVV" promptText="123" styleClass="bet-input" style="-fx-font-size: 14px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+        </HBox>
+
+        <VBox spacing="10.0" style="-fx-padding: 10 0 0 0;">
+            <Button onAction="#handleGuardar" maxWidth="Infinity" styleClass="bet-confirm-button" text="GUARDAR CONFIGURACIÓ" />
+            <Button onAction="#handleTornar" maxWidth="Infinity" styleClass="sidebar-button" style="-fx-alignment: CENTER;" text="Cancel·lar" />
+        </VBox>
+    </VBox>
+
+    <Label style="-fx-text-fill: #444a55; -fx-font-size: 10px;" text="🔒 Les tus dades estan xifrades sota l'estàndard PCI-DSS" />
+</VBox>

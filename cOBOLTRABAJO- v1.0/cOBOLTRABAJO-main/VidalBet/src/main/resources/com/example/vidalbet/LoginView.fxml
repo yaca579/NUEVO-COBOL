@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="30.0"
+      style="-fx-background-color: #12151B;"
+      stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.vidalbet.LoginController">
+
+    <children>
+        <VBox alignment="CENTER" spacing="5.0">
+            <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 42px; -fx-font-weight: bold;" text="VIDALBET" />
+            <Label style="-fx-text-fill: white; -fx-font-size: 14px; -fx-letter-spacing: 3px;" text="INICI DE SESSIÓ" />
+        </VBox>
+
+        <VBox maxWidth="380.0" spacing="25.0" styleClass="dialog-pane" style="-fx-padding: 40;">
+
+            <VBox spacing="8.0">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 12px; -fx-font-weight: bold;" text="USUARI" />
+                <TextField fx:id="txtUsuari" promptText="El teu usuari" styleClass="bet-input" style="-fx-font-size: 14px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="8.0">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 12px; -fx-font-weight: bold;" text="CONTRASENYA" />
+                <PasswordField fx:id="txtPassword" promptText="" styleClass="bet-input" style="-fx-font-size: 14px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="15.0" style="-fx-padding: 10 0 0 0;">
+                <Button maxWidth="Infinity" onAction="#handleLogin" styleClass="bet-confirm-button" text="ENTRAR A VIDALBET" />
+
+                <Button maxWidth="Infinity" onAction="#handleAnarARegistre" styleClass="sidebar-button" style="-fx-text-fill: #E5C04A; -fx-alignment: CENTER;" text="No tens compte? Registra't" />
+            </VBox>
+        </VBox>
+
+        <Label style="-fx-text-fill: #444a55; -fx-font-size: 10px;" text="Joc responsable: +18" />
+    </children>
+</VBox>

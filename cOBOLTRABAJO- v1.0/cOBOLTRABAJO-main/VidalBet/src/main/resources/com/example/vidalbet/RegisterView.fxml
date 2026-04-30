@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="750.0" prefWidth="900.0" spacing="15"
+      style="-fx-background-color: #12151B; -fx-padding: 20;"
+      stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.vidalbet.RegisterController">
+
+    <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 32px; -fx-font-weight: bold;" text="VIDALBET" />
+    <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-letter-spacing: 2px;" text="CREAR COMPTE" />
+
+    <VBox maxWidth="700.0" spacing="20.0" styleClass="dialog-pane" style="-fx-padding: 30;">
+
+        <Label style="-fx-text-fill: #E5C04A; -fx-font-size: 14px; -fx-font-weight: bold; -fx-letter-spacing: 1px;" text="DADES PERSONALS I D'ACCÉS" />
+
+        <GridPane hgap="20.0" vgap="15.0">
+            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="NOM" />
+                <TextField fx:id="txtNom" promptText="El teu nom" styleClass="bet-input" style="-fx-font-size: 13px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="DATA DE NAIXEMENT" />
+                <DatePicker fx:id="dpNaixement" maxWidth="Infinity" styleClass="bet-input" />
+            </VBox>
+
+            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="COMUNITAT AUTÒNOMA" />
+                <TextField fx:id="txtComunitat" promptText="Ex: Catalunya" styleClass="bet-input" style="-fx-font-size: 13px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="NOM D'USUARI" />
+                <TextField fx:id="txtNouUsuari" promptText="Crea un usuari" styleClass="bet-input" style="-fx-font-size: 13px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="COGNOMS" />
+                <TextField fx:id="txtCognoms" promptText="Els teus cognoms" styleClass="bet-input" style="-fx-font-size: 13px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="PAÍS" />
+                <TextField fx:id="txtPais" promptText="Ex: Espanya" styleClass="bet-input" style="-fx-font-size: 13px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="CODI POSTAL" />
+                <TextField fx:id="txtCP" promptText="Ex: 43001" styleClass="bet-input" style="-fx-font-size: 13px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <Label style="-fx-text-fill: #7A808C; -fx-font-size: 11px; -fx-font-weight: bold;" text="CONTRASENYA" />
+                <PasswordField fx:id="txtNouPassword" promptText="••••••••" styleClass="bet-input" style="-fx-font-size: 13px; -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+        </GridPane>
+
+        <Separator opacity="0.05" />
+
+        <VBox spacing="15.0">
+            <Button maxWidth="Infinity" onAction="#handleAnarAPagament" styleClass="sidebar-button"
+                    style="-fx-border-color: #E5C04A; -fx-border-radius: 10; -fx-text-fill: white;"
+                    text="💳 CONFIGURAR MÈTODE DE PAGAMENT" />
+
+            <Button maxWidth="Infinity" onAction="#handleRegistrar" styleClass="bet-confirm-button"
+                    style="-fx-font-size: 16px; -fx-padding: 15;" text="REGISTRAR-SE ARA" />
+
+            <Button maxWidth="Infinity" onAction="#handleTornarLogin" styleClass="sidebar-button"
+                    style="-fx-alignment: CENTER;" text="Ja tens compte? Inicia sessió" />
+        </VBox>
+    </VBox>
+
+    <Label style="-fx-text-fill: #444a55; -fx-font-size: 10px;" text="VidalBet llicència de joc segura © 2026" />
+</VBox>
